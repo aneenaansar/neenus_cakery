@@ -73,6 +73,7 @@
             text-shadow: 2px 2px 4px rgba(84, 55, 41, 0.1);
             opacity: 0;
         }
+        /* hero section ends here  */
 
         /* About Section */
         .about-neenu {
@@ -98,6 +99,7 @@
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(84, 55, 41, 0.1);
         }
+        /* about section ends here  */
 
         /* Journey Section */
         .journey {
@@ -121,6 +123,7 @@
             opacity: 0;
             transform: translateY(50px);
         }
+        /* journey ends here  */
 
         /* Behind the Scenes */
         .behind-scenes {
@@ -161,7 +164,20 @@
             line-height: 1.8;
             margin-bottom: 1.5rem;
         }
+        /* behind the scenes ends here  */
 
+        /* footer styles starts here  */
+        footer {
+            background: #2d3436;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        /* footer styles ends here  */
+
+
+        /* responsive starts here  */
         @media (max-width: 768px) {
             .about-neenu {
                 grid-template-columns: 1fr;
@@ -176,6 +192,7 @@
                 font-size: 3rem;
             }
         }
+        /* responsive ends here  */
     </style>
 </head>
 <body>
@@ -196,6 +213,7 @@
     <section class="hero">
         <h1>Sweet Stories from Our Kitchen</h1>
     </section>
+    <!-- Hero Section ends here -->
 
     <!-- About Neenu -->
     <section class="about-neenu">
@@ -206,6 +224,7 @@
         </div>
         <div class="about-image"></div>
     </section>
+    <!-- about section ends here  -->
 
     <!-- Journey Section -->
     <section class="journey">
@@ -229,6 +248,7 @@
             </div>
         </div>
     </section>
+    <!-- journey ends here  -->
 
     <!-- Behind the Scenes -->
     <section class="behind-scenes">
@@ -239,6 +259,14 @@
             <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1586444248902-2f64eddc13df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
         </div>
     </section>
+    <!-- bihind the scenes ends here  -->
+
+    <!-- footer starts here  -->
+    <footer>
+        <p>Contact us: cakery@neenu.com | Phone: +91 98765 43210</p>
+        <p>Follow us on social media for daily sweetness!</p>
+    </footer>
+    <!-- footer ends here  -->
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
