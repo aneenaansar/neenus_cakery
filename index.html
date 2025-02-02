@@ -297,6 +297,114 @@
             text-align: center;
         }
 
+
+        @media (max-width: 768px) {
+        /* Header adjustments */
+        .nav {
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Hero section fixes */
+        .logo {
+            font-size: 4rem;
+            padding: 0 1rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            padding: 0 1rem;
+        }
+
+        .cake-icon {
+            width: 80px;
+        }
+
+        /* About section fixes */
+        .about-section {
+            padding: 3rem 1rem;
+        }
+
+        .about-container {
+            gap: 2rem;
+        }
+
+        .about-image img {
+            height: 400px;
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+        }
+
+        /* Gallery fixes */
+        .gallery {
+            padding: 3rem 1rem;
+        }
+
+        .gallery-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .cake-card img {
+            height: 300px;
+        }
+
+        /* Reviews section fixes */
+        .reviews-section {
+            padding: 3rem 1rem;
+        }
+
+        .review-card {
+            transform: translateY(0);
+        }
+
+        /* Footer adjustments */
+        footer {
+            padding: 1.5rem;
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        /* Mobile-specific fixes */
+        .logo {
+            font-size: 3rem;
+        }
+
+        .tagline {
+            font-size: 1rem;
+        }
+
+        .nav {
+            gap: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .about-image img {
+            height: 300px;
+        }
+
+        .about-title {
+            font-size: 2rem;
+        }
+
+        .about-text {
+            font-size: 1rem;
+        }
+
+        .signature {
+            font-size: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+
+        .cake-icon {
+            display: none; /* Hide floating cake on mobile */
+        }
+    }
     </style>
 </head>
 <body>
