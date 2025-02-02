@@ -50,9 +50,10 @@
         }
         /* header styles ends here  */
 
+        /* hero style starts here  */
         .hero-section {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+            background: linear-gradient(rgba(246, 162, 162, 0.4), rgba(0,0,0,0.4)),
                         url('https://images.unsplash.com/photo-1612201142850-dd8e00315ece?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNha2UlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww') center/cover;
             display: flex;
             align-items: center;
@@ -108,7 +109,9 @@
             0%, 100% { transform: translateY(0) rotate(-5deg); }
             50% { transform: translateY(-40px) rotate(5deg); }
         }
+        /* hero styles ends here  */
 
+        /* cakes styles starts here  */
         .cakes-title {
             font-family: 'Dancing Script', cursive;
             font-size: 4.5rem;
@@ -161,7 +164,9 @@
             bottom: 0;
             opacity: 1;
         }
+        /* cakes styles ends here  */
 
+        /* footer styles starts here  */
         footer {
             background: #2d3436;
             color: white;
@@ -169,7 +174,10 @@
             text-align: center;
             margin-top: 4rem;
         }
+        /* footer styles ends here  */
 
+
+        /* responsive starts here  */
         @media (max-width: 768px) {
             .cakes-title {
                 font-size: 3.5rem;
@@ -179,6 +187,7 @@
                 gap: 1.5rem;
             }
         }
+         /* responsive ends here  */
     </style>
 </head>
 <body>
@@ -188,13 +197,14 @@
             <nav class="nav">
                 <a href="./index.html">Home</a>
                 <a href="./cakes.html">Cakes</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
+                <a href="./about.html">About</a>
+                <a href="./contact.html">Contact</a>
             </nav>
         </div>
     </header>
     <!-- header section ends here  -->
 
+    <!-- hero section starts here  -->
     <section class="hero-section">
         <img src="https://cdn-icons-png.flaticon.com/512/3724/3724978.png" alt="Cake Icon" class="floating-cake">
         <div class="hero-content">
@@ -203,7 +213,9 @@
             <a href="#cakes"><button class="cta-button">Explore Our Creations</button></a>
         </div>
     </section>
+    <!-- hero section ends here  -->
 
+    <!-- cakes section starts here  -->
     <section id="cakes" class="cake-gallery">
         <div class="gallery-grid">
             <div class="cake-item">
@@ -232,13 +244,17 @@
             </div>
         </div>
     </section>
+    <!-- cakes section ends here  -->
 
-
+    <!-- footer starts here  -->
     <footer>
         <p>Contact us: cakery@neenu.com | Phone: +91 98765 43210</p>
         <p>Follow us on social media for daily sweetness!</p>
     </footer>
+    <!-- footer ends here  -->
 
+
+    <!-- javascript starts here  -->
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
@@ -319,5 +335,6 @@
             ease: "power3.out"
         });
     </script>
+    <!-- javascript ends here  -->
 </body>
 </html>
