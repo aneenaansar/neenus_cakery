@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Arimo&family=Artifika&family=Dancing+Script:wght@400..700&family=Montserrat:wght@300&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", serif;
+}
+.hero{
+    position: relative;
+    background: #825dd2;
+    height: 100vh;
+}
+.hero::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+    height: 100%;
+    background: radial-gradient(circle, #bd9fff, transparent,transparent);
+    z-index: 1;
+    
+}
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    z-index: 1000;
+}
+header nav{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+header .logo{
+    color: #fff;
+    text-decoration: none;
+    font-size: 40px;
+    letter-spacing: 2px;
+    font-family: "Anton", serif;
+}
+header .nav_links{
+    display: flex;
+    gap: 40px;
+}
+header .nav_links a{
+    text-decoration: none;
+    color: #f0f0f0;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+header .nav_links a:hover{
+    color: #fff;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+.hero .container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+#heroimage{
+    position: absolute;
+    width: 35%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1)0.5s;
+}
+#beater{
+    position: absolute;
+    top: 40%;
+    left: 60%;
+    transform: translate(-50%,-50%);
+    width: 18vw;
+}
+#oven{
+    position: absolute;
+    top: 65%;
+    left: 40%;
+    transform: translate(-50%,-50%);
+    width: 15vw;
+}
+#tray{
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    transform: translate(-50%,-50%);
+    width: 6vw;
+}
+.hero h1{
+    font-size: 12vw;
+    color: #fff;
+    font-weight: 900;
+    letter-spacing: 10px;
+    font-family: "Anton", serif;
+    text-transform: uppercase;
+}
+
+
+
+:root {
+    --primary-color: #f8a5d3;
+    --secondary-color: #6c5b7b;
+}
+
+.about-section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.text-content {
+    flex: 1 1 60%;
+    min-width: 300px;
+}
+
+.image-container {
+    flex: 1 1 35%;
+    min-width: 300px;
+}
+
+.about-image {
+    width: 100%;
+    height: 500px;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.about-heading {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.about-subtitle {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.about-text {
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.cta-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    background-color: #ff97c7;
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-image {
+        height: 400px;
+    }
+    
+    .text-content {
+        order: 2;
+    }
+}
+
+
+
+.stand{
+    height: 85vh;
+    background: #bd9fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 130px;
+}
+
+.stand .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.stand img{
+    width: 55%;
+}
+.stand h3{
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 26vh;
+    text-transform: uppercase;
+    font-family: "Anton", serif;
+    color: #6a47b4;
+    letter-spacing: 7px;
+}
+
+#heroimage, #beater, #oven, #tray {
+    will-change: transform, width, height;
+}
