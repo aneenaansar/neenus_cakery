@@ -370,7 +370,7 @@ header .nav_links a:hover{
 @media (max-width: 400px) {
     .hero h1 {
         font-size: 22vw;
-        padding-left: 43px;
+        padding-left: 90px;
     }
     
     .stand h3 {
