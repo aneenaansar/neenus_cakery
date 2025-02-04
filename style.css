@@ -6,6 +6,7 @@
     box-sizing: border-box;
     font-family: "Roboto", serif;
 }
+/* header and hero section css starts here  */
 .hero{
     position: relative;
     background: #825dd2;
@@ -111,9 +112,13 @@ header .nav_links a:hover{
     font-family: "Anton", serif;
     text-transform: uppercase;
 }
+#heroimage, #beater, #oven, #tray {
+    will-change: transform, width, height;
+}
+/* header and hero section css ends here  */
 
 
-
+/* about section css starts here  */
 :root {
     --primary-color: #f8a5d3;
     --secondary-color: #6c5b7b;
@@ -191,23 +196,10 @@ header .nav_links a:hover{
     background-color: #ff97c7;
 }
 
-@media (max-width: 768px) {
-    .about-section {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .about-image {
-        height: 400px;
-    }
-    
-    .text-content {
-        order: 2;
-    }
-}
 
+/* about section css ends here  */
 
-
+/* stand section css starts here  */
 .stand{
     height: 85vh;
     background: #bd9fff;
@@ -237,7 +229,196 @@ header .nav_links a:hover{
     color: #6a47b4;
     letter-spacing: 7px;
 }
+/* stand section css starts here  */
 
-#heroimage, #beater, #oven, #tray {
-    will-change: transform, width, height;
+/* media query starts here  */
+
+@media (max-width: 1200px) {
+    header nav {
+        width: 90%;
+    }
+    
+    .hero::after {
+        width: 90%;
+    }
+}
+
+@media (max-width: 992px) {
+    #beater {
+        width: 25vw;
+    }
+    
+    #oven {
+        width: 20vw;
+    }
+    
+    #tray {
+        width: 10vw;
+    }
+}
+
+@media (max-width: 768px) {
+    header .logo {
+        font-size: 30px;
+    }
+    
+    header .nav_links {
+        gap: 20px;
+    }
+    
+    .hero h1 {
+        font-size: 15vw;
+        letter-spacing: 5px;
+    }
+    
+    #heroimage {
+        width: 50%;
+    }
+    
+    /* About Section Mobile */
+    .about-section {
+        padding: 50px 20px;
+    }
+    
+    .about-heading {
+        font-size: 2rem;
+    }
+    
+    .about-text {
+        font-size: 1rem;
+    }
+    /* @media (max-width: 768px) {
+        .about-section {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .about-image {
+            height: 400px;
+        }
+        
+        .text-content {
+            order: 2;
+        }
+    } */
+    /* Stand Section Mobile */
+    .stand {
+        height: 60vh;
+        padding-top: 80px;
+    }
+    
+    .stand h3 {
+        font-size: 15vh;
+    }
+    
+    .stand img {
+        width: 70%;
+    }
+}
+
+
+@media (max-width: 576px) {
+    header .nav_links {
+        display: none; /* Hide navigation on mobile */
+    }
+    
+    .hero h1 {
+        font-size: 18vw;
+    }
+    
+    #beater {
+        width: 35vw;
+        top: 45%;
+        left: 70%;
+    }
+    
+    #oven {
+        width: 25vw;
+        left: 30%;
+    }
+    
+    #tray {
+        width: 15vw;
+    }
+    
+    /* About Section Mobile */
+    .about-section {
+        text-align: center;
+        padding: 40px 15px;
+    }
+    
+    .cta-button {
+        width: 100%;
+        padding: 15px 20px;
+    }
+    
+    /* Stand Section Mobile */
+    .stand {
+        height: 50vh;
+    }
+    
+    .stand h3 {
+        font-size: 12vh;
+        letter-spacing: 3px;
+    }
+    
+    .stand img {
+        width: 85%;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero h1 {
+        font-size: 22vw;
+    }
+    
+    .stand h3 {
+        font-size: 10vh;
+    }
+    
+    .stand {
+        height: 40vh;
+    }
+}
+
+@media (hover: hover) {
+    header .nav_links a:hover {
+        color: #fff;
+    }
+    .cta-button:hover {
+        transform: translateY(-3px);
+        background-color: #ff97c7;
+    }
+}
+
+
+
+
+.mobile-menu {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+}
+
+@media (max-width: 576px) {
+    .mobile-menu {
+        display: block;
+    }
+    
+    .nav_links {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        background: #825dd2;
+        flex-direction: column;
+        width: 100%;
+        padding: 20px;
+        transition: right 0.3s ease;
+    }
+    
+    .nav_links.active {
+        right: 0;
+    }
 }
