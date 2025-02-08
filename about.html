@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Neenus Cakery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* header section  */
+        header{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            z-index: 1000;
+        }
+        header nav{
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+        header .logo{
+            color: #fff;
+            text-decoration: none;
+            font-size: 40px;
+            letter-spacing: 2px;
+            font-family: "Anton", serif;
+        }
+        header .nav_links{
+            display: flex;
+            gap: 40px;
+        }
+        header .nav_links a{
+            text-decoration: none;
+            color: #f0f0f0;
+            font-size: 18px;
+            font-family: sans-serif;
+        }
+        header .nav_links a:hover{
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background-color: #825dd2;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ffffff;
+        }
+
+        .floating-icon {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .icon1 { top: 20%; left: 20%; animation-delay: 0s; }
+        .icon2 { top: 30%; right: 20%; animation-delay: 2s; }
+        .icon3 { bottom: 30%; left: 30%; animation-delay: 4s; }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(130, 93, 210, 0.2);
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: #825dd2;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(130, 93, 210, 0.2);
+            color: white;
+        }
+
+        .about-content h2 {
+            font-size: 2rem;
+            color: #825dd2;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            color: #4b5563;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            background-color: #f5f0ff;
+            padding: 5rem 2rem;
+        }
+
+        .timeline h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #825dd2;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: #825dd2;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            padding: 1rem;
+            position: relative;
+            width: 50%;
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 0.5s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(130, 93, 210, 0.2);
+        }
+
+        .timeline-content h3 {
+            color: #825dd2;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-year {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #825dd2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-year {
+            right: -60px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-year {
+            left: -60px;
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-container::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-year {
+                left: 0 !important;
+            }
+        }
+
+        /* footer section css starts here  */
+        .footer {
+            background-color: rgb(38, 34, 34); /* Yellow background */
+            color: #fff; /* Dark brown text */
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .footer h2, .footer h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .footer p, .footer ul {
+            font-size: 14px;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin: 5px 0;
+        }
+
+        .footer ul li a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        .footer ul li a:hover {
+            color: #fff; /* Darker brown */
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            border-top: 1px solid #fff;
+            padding-top: 10px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- header section starts here  -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Neenu's Cakery</a>
+            <div class="nav_links">
+                <a href="./index.html">Home</a>
+                <a href="./cakes.html">Cakes</a>
+                <a href="./about.html">About</a>
+                <a href="./contact.html">Contact</a>
+            </div>
+            <button class="mobile-menu">☰</button>
+        </nav>
+    </header>
+    <!-- header section ends here  -->
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Neenus Cakery</h1>
+            <p>Where every slice tells a story and every bite brings joy</p>
+        </div>
+        <svg class="floating-icon icon1" viewBox="0 0 24 24" fill="#ffffff">
+            <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.33L19.33 8 12 11.67 4.67 8 12 4.33zM4 16.5v-7l8 4 8-4v7l-8 4-8-4z"/>
+        </svg>
+        <svg class="floating-icon icon2" viewBox="0 0 24 24" fill="#ffffff">
+            <path d="M12 6c1.11 0 2-.89 2-2s-.89-2-2-2-2 .89-2 2 .89 2 2 2zm4.84 1.76c-.31-.31-.47-.76-.47-1.76H16c0 1.67.47 2.67 1.16 3.36l1.41 1.41C19.45 11.65 20 12.814 20 14v2h-1v-2c0-.6-.33-1.14-.84-1.64L15.75 10h-7.5l-2.41 2.36C5.33 12.86 5 13.4 5 14v2H4v-2c0-1.186.55-2.35 1.43-3.23l1.41-1.41C7.53 8.67 8 7.67 8 6H6.37c0 1 .16 1.45-.47 1.76C5.52 8.14 5 8.86 5 10h2v4h10v-4h2c0-1.14-.52-1.86-.9-2.24z"/>
+        </svg>
+        <svg class="floating-icon icon3" viewBox="0 0 24 24" fill="#ffffff">
+            <path d="M6 2l1.5 1.5L9 2l1.5 1.5L12 2l1.5 1.5L15 2l1.5 1.5L18 2l1.5 1.5L21 2v20l-1.5-1.5L18 22l-1.5-1.5L15 22l-1.5-1.5L12 22l-1.5-1.5L9 22l-1.5-1.5L6 22l-1.5-1.5L3 22V2l1.5 1.5L6 2zm14 2H4v16h16V4zm-2 4H6v2h12V8zm0 4H6v2h12v-2zm0 4H6v2h12v-2z"/>
+        </svg>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="./images/neenu_img.jpg" alt="Neenu">
+                <div class="experience-badge">
+                    <strong>10+ Years</strong>
+                    <p>Experience</p>
+                </div>
+            </div>
+            <div class="about-content">
+                <h2>Meet Neenu</h2>
+                <p>With over a decade of experience in the art of baking, Neenu has transformed her passion for creating delightful treats into a thriving business that brings joy to countless customers.</p>
+                <p>Starting from her home kitchen, she has mastered the perfect balance of flavors and textures, creating cakes that not only look stunning but taste heavenly. Her attention to detail and commitment to quality have earned her a reputation as one of the most sought-after bakers in the region.</p>
+                <p>Each creation is crafted with love, using only the finest ingredients and drawing inspiration from both traditional recipes and modern techniques.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <h2>Our Journey</h2>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>The Beginning</h3>
+                    <p>Started baking from home kitchen with a simple vanilla cake recipe</p>
+                </div>
+                <div class="timeline-year">2014</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>First Store Opening</h3>
+                    <p>Opened our first physical store after overwhelming customer demand</p>
+                </div>
+                <div class="timeline-year">2016</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Award Recognition</h3>
+                    <p>Won 'Best Local Bakery' award and expanded our menu offerings</p>
+                </div>
+                <div class="timeline-year">2019</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Growing Success</h3>
+                    <p>Launched online ordering and expanded to custom corporate events</p>
+                </div>
+                <div class="timeline-year">2023</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer starts here  -->
+    <footer class="footer">
+        <div class="footer-container">
+        <!-- Logo & About -->
+        <div class="footer-about">
+            <h2>Neenu's Cakery</h2>
+            <p>Delicious homemade cakes, made with love!</p>
+        </div>
+    
+        <!-- Quick Links -->
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Cakes</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    
+        <!-- Contact Info -->
+        <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <p>Email: contact@neenuscakery.com</p>
+            <p>Phone: +123 456 7890</p>
+        </div>
+        </div>
+    
+        <div class="footer-bottom">
+        <p>© 2025 Neenu's Cakery. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animate timeline items on scroll
+        function checkTimelineVisibility() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            timelineItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                const isVisible = (rect.top <= window.innerHeight * 0.8);
+                
+                if (isVisible) {
+                    item.classList.add('visible');
+                }
+            });
+        }
+
+        // Initial check and add scroll listener
+        window.addEventListener('load', checkTimelineVisibility);
+        window.addEventListener('scroll', checkTimelineVisibility);
+    </script>
+</body>
+</html>
