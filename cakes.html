@@ -466,6 +466,11 @@
             ease: "back.out(1.7)"
         });
 
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', () => {
+            document.querySelector('.nav_links').classList.toggle('active');
+        });
+
         // Slider functionality
         const slides = document.querySelectorAll('.cake-slide');
         let currentSlide = 0;
