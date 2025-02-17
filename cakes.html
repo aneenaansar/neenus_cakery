@@ -3,313 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sweet Delights - Cakes</title>
+    <title>Our Delicious Creations - Neenu's Cakery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        body{
+            background: #D2D2D2;
         }
-
-        body {
-            font-family: Arial, sans-serif;
-            overflow-x: hidden;
+        
+        .heading{
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 38px;
+            color: #25283B;
         }
-
-        header{
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 80px;
-            z-index: 1000;
-        }
-        header nav{
-            width: 80%;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 100%;
-        }
-        header .logo{
-            color: #fff;
-            text-decoration: none;
-            font-size: 40px;
-            letter-spacing: 2px;
-            font-family: "Anton", serif;
-        }
-        header .nav_links{
-            display: flex;
-            gap: 40px;
-        }
-        header .nav_links a{
-            text-decoration: none;
-            color: #f0f0f0;
-            font-size: 18px;
-            font-family: sans-serif;
-        }
-        header .nav_links a:hover{
-            color: #fff;
-        }
-        .mobile-menu {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            background-color: #825dd2;
-            padding: 2rem;
-        }
-
-        .hero-content {
-            text-align: left;
+        /* cakes styles starts here  */
+        .cakes-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            color: #2d3436;
             opacity: 0;
-            transform: translateY(50px);
-            max-width: 500px;
+            transform: translateY(100px);
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #666;
-        }
-
-        .hero-svg {
-            width: 400px;
-            height: 400px;
-            opacity: 0;
-            transform: translateX(50px);
-        }
-
-        .cakes-section {
-            padding: 6rem 2rem;
-            background-color: #fff;
-        }
-
-        .slider-container {
-            max-width: 1200px;
+        .cake-gallery {
+            padding: 9rem 2rem;
+            max-width: 1400px;
             margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .cake-item {
             position: relative;
-            height: 500px;
-            perspective: 1000px;
-        }
-
-        .cake-slide {
-            position: absolute;
-            width: 300px;
-            background: white;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             overflow: hidden;
-            opacity: 0;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
 
-        .cake-slide img {
+        .cake-item img {
             width: 100%;
-            height: 200px;
+            height: 400px;
             object-fit: cover;
+            display: block;
         }
 
-        .cake-info {
-            padding: 1.5rem;
-        }
-
-        .cake-info h3 {
-            color: #ff6b6b;
-            margin-bottom: 0.5rem;
-        }
-
-        .cake-info p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .slider-nav {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .slider-nav button {
-            background: #ff6b6b;
+        .cake-name {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background: rgba(0,0,0,0.7);
             color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            margin: 0 0.5rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-            font-size: 1rem;
-        }
-
-        .slider-nav button:hover {
-            background: #ff5252;
-        }
-
-        /* footer section css starts here  */
-        .footer {
-            background-color: rgb(38, 34, 34); /* Yellow background */
-            color: #fff; /* Dark brown text */
-            padding: 20px 0;
             text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
         }
 
-        .footer-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            max-width: 1100px;
-            margin: auto;
-            padding: 20px;
+        .cake-item:hover .cake-name {
+            bottom: 0;
+            opacity: 1;
         }
+        /* cakes styles ends here  */
 
-        .footer h2, .footer h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .footer p, .footer ul {
-            font-size: 14px;
-        }
-
-        .footer ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer ul li {
-            margin: 5px 0;
-        }
-
-        .footer ul li a {
-            text-decoration: none;
-            color: #fff;
-            transition: color 0.3s;
-        }
-
-        .footer ul li a:hover {
-            color: #fff; /* Darker brown */
-        }
-
-        .footer-bottom {
-            margin-top: 20px;
-            border-top: 1px solid #fff;
-            padding-top: 10px;
-            font-size: 12px;
-        }
+        
 
 
-        /* Responsive Styles */
+        /* responsive starts here  */
         @media (max-width: 768px) {
-            header nav {
-                width: 90%;
+            .cakes-title {
+                font-size: 3.5rem;
             }
             
-            header .logo {
-                font-size: 30px;
-            }
-            
-            header .nav_links {
-                display: none;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                right: 0;
-                background: #825dd2;
-                flex-direction: column;
-                padding: 20px;
-                text-align: center;
-            }
-            
-            header .nav_links.active {
-                display: flex;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero {
-                flex-direction: column;
-                padding-top: 120px;
-                text-align: center;
-            }
-
-            .hero-content {
-                margin-bottom: 40px;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-svg {
-                width: 300px;
-                height: 300px;
-            }
-
-            .slider-container {
-                height: 400px;
-            }
-
-            .cake-slide {
-                width: 80%;
-            }
-
-            .slider-nav {
-                flex-direction: column;
-                gap: 10px;
-                align-items: center;
-            }
-
-            .slider-nav button {
-                width: 80%;
-                margin: 0;
-            }
-
-            .footer-container {
-                flex-direction: column;
-                gap: 30px;
-                text-align: center;
+            .gallery-grid {
+                gap: 1.5rem;
             }
         }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero-svg {
-                width: 250px;
-                height: 250px;
-            }
-
-            .cake-slide {
-                width: 90%;
-            }
-
-            .slider-nav button {
-                width: 90%;
-            }
-        }
+         /* responsive ends here  */
     </style>
 </head>
 <body>
@@ -328,67 +106,62 @@
     </header>
     <!-- header section ends here  -->
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Delicious Handmade Cakes</h1>
-            <p>Crafted with love, baked to perfection</p>
+    <!-- cakes section starts here  -->
+    <section id="cakes" class="cake-gallery">
+        <h2 class="heading">Our Delicious Creations</h2>
+        <div class="gallery-grid">
+            <div class="cake-item">
+                <img src="./images/cake1.jpg" alt="Wedding Cake">
+                <div class="cake-name">Royal Wedding Cake</div>
+            </div>
+            <div class="cake-item">
+                <img src="./images/cake2.jpg" alt="Birthday Cake">
+                <div class="cake-name">Chocolate Fantasy</div>
+            </div>
+            <div class="cake-item">
+                <img src="./images/cake3.jpg" alt="Cupcakes">
+                <div class="cake-name">Velvet Cupcakes</div>
+            </div>
+            <div class="cake-item">
+                <img src="./images/cake4.jpg" alt="Cheesecake">
+                <div class="cake-name">Berry Cheesecake</div>
+            </div>
+            <div class="cake-item">
+                <img src="./images/cake5.jpg" alt="Macarons">
+                <div class="cake-name">French Macarons</div>
+            </div>
+            <div class="cake-item">
+                <img src="./images/cake6.jpg" alt="Red Velvet">
+                <div class="cake-name">Red Velvet Dream</div>
+            </div>
+            <div class="cake-item">
+                <img src="./images/cake7.jpg" alt="Wedding Cake">
+                <div class="cake-name">Royal Wedding Cake</div>
+            </div>
+            <div class="cake-item">
+                <img src="./images/cake8.jpg" alt="Birthday Cake">
+                <div class="cake-name">Chocolate Fantasy</div>
+            </div>
+            <div class="cake-item">
+                <img src="./images/cake9.jpg" alt="Cupcakes">
+                <div class="cake-name">Velvet Cupcakes</div>
+            </div>
+            <div class="cake-item">
+                <img src="./images/cake10.jpg" alt="Cheesecake">
+                <div class="cake-name">Berry Cheesecake</div>
+            </div>
+            <div class="cake-item">
+                <img src="./images/cake1.jpg" alt="Macarons">
+                <div class="cake-name">French Macarons</div>
+            </div>
+            <div class="cake-item">
+                <img src="./images/cake3.jpg" alt="Red Velvet">
+                <div class="cake-name">Red Velvet Dream</div>
+            </div>
         </div>
-        
-        <svg class="hero-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="100" cy="170" rx="80" ry="15" fill="#d4d4d4"/>
-            <path d="M40 140 C40 140 40 120 100 120 C160 120 160 140 160 140 L160 170 L40 170 Z" fill="#ff9999"/>
-            <path d="M50 120 C50 120 50 100 100 100 C150 100 150 120 150 120 L150 140 L50 140 Z" fill="#ff7777"/>
-            <path d="M60 100 C60 100 60 80 100 80 C140 80 140 100 140 100 L140 120 L60 120 Z" fill="#ff5555"/>
-            <circle cx="80" cy="90" r="5" fill="#fff"/>
-            <circle cx="120" cy="90" r="5" fill="#fff"/>
-            <circle cx="100" cy="95" r="5" fill="#fff"/>
-            <circle cx="70" cy="110" r="5" fill="#fff"/>
-            <circle cx="130" cy="110" r="5" fill="#fff"/>
-            <circle cx="100" cy="115" r="5" fill="#fff"/>
-            <circle cx="60" cy="130" r="5" fill="#fff"/>
-            <circle cx="140" cy="130" r="5" fill="#fff"/>
-            <circle cx="100" cy="135" r="5" fill="#fff"/>
-            <circle cx="100" cy="75" r="8" fill="#ff0000"/>
-            <path d="M100 75 Q95 65 90 60" stroke="#4a0" stroke-width="2" fill="none"/>
-        </svg>
     </section>
+<!-- cakes section ends here  -->
 
-    <section class="cakes-section" id="cakes">
-        <div class="slider-container">
-            <div class="cake-slide">
-                <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FrZXxlbnwwfHwwfHx8MA%3D%3D" alt="Chocolate Cake">
-                <div class="cake-info">
-                    <h3>Chocolate Dream</h3>
-                    <p>Rich chocolate layers with smooth ganache</p>
-                </div>
-            </div>
-            <div class="cake-slide">
-                <img src="https://plus.unsplash.com/premium_photo-1713447395823-2e0b40b75a89?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Y2FrZXxlbnwwfHwwfHx8MA%3D%3D" alt="Vanilla Cake">
-                <div class="cake-info">
-                    <h3>Vanilla Cloud</h3>
-                    <p>Light and fluffy vanilla sponge</p>
-                </div>
-            </div>
-            <div class="cake-slide">
-                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNha2V8ZW58MHx8MHx8fDA%3D" alt="Strawberry Cake">
-                <div class="cake-info">
-                    <h3>Strawberry Bliss</h3>
-                    <p>Fresh strawberries with cream</p>
-                </div>
-            </div>
-            <div class="cake-slide">
-                <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2FrZXxlbnwwfHwwfHx8MA%3D%3D" alt="Strawberry Cake">
-                <div class="cake-info">
-                    <h3>Strawberry Bliss</h3>
-                    <p>Fresh strawberries with cream</p>
-                </div>
-            </div>
-        </div>
-        <div class="slider-nav">
-            <button onclick="prevSlide()">Previous</button>
-            <button onclick="nextSlide()">Next</button>
-        </div>
-    </section>
 
     <!-- footer starts here  -->
     <footer class="footer">
@@ -422,108 +195,90 @@
         <p>© 2025 Neenu's Cakery. All rights reserved.</p>
         </div>
     </footer>
+    <!-- footer ends here  -->
 
+
+    <!-- javascript starts here  -->
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // Header animation
-        gsap.to("header", {
-            opacity: 1,
-            duration: 1,
-            ease: "power2.out"
+        // Header title animation
+        gsap.from(".cakes-title", {
+            duration: 1.5,
+            opacity: 0,
+            y: 100,
+            ease: "power4.out"
         });
 
-        // Hero animations
-        gsap.to(".hero-content", {
+         // Hero Section Animations
+         gsap.to(".hero-content", {
+            duration: 1.5,
             opacity: 1,
             y: 0,
-            duration: 1.5,
-            ease: "power2.out"
+            ease: "power4.out"
         });
 
-        gsap.to(".hero-svg", {
+        gsap.to(".floating-cake", {
+            duration: 2,
             opacity: 1,
-            x: 0,
-            duration: 1.5,
-            ease: "power2.out"
+            rotation: 360,
+            ease: "power2.out",
+            delay: 0.5
         });
 
-        // Animate SVG elements
-        gsap.from(".hero-svg path", {
-            scaleY: 0,
-            transformOrigin: "bottom",
-            duration: 1,
-            stagger: 0.2,
-            delay: 0.5,
-            ease: "power2.out"
-        });
-
-        gsap.from(".hero-svg circle", {
-            scale: 0,
-            duration: 0.5,
-            stagger: 0.1,
-            delay: 1.5,
-            ease: "back.out(1.7)"
-        });
-
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu').addEventListener('click', () => {
-            document.querySelector('.nav_links').classList.toggle('active');
-        });
-
-        // Slider functionality
-        const slides = document.querySelectorAll('.cake-slide');
-        let currentSlide = 0;
-
-        function updateSlides() {
-            slides.forEach((slide, index) => {
-                let offset = ((index - currentSlide) + slides.length) % slides.length;
-                
-                gsap.to(slide, {
-                    x: `${(offset - 1) * 120}%`,
-                    opacity: offset === 1 ? 1 : 0.5,
-                    scale: offset === 1 ? 1 : 0.8,
-                    duration: 0.8,
-                    ease: "power2.out",
-                    zIndex: offset === 1 ? 2 : 1
-                });
-            });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateSlides();
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            updateSlides();
-        }
-
-        // Initialize slider
-        updateSlides();
-
-        // Footer animation
-        gsap.to("footer", {
-            opacity: 1,
-            scrollTrigger: {
-                trigger: "footer",
-                start: "top bottom",
-                end: "top center",
-                scrub: true
-            }
-        });
-
-        // Auto-play slider
-        const autoPlay = gsap.to({}, {
+        // Add floating animation to cake icon
+        gsap.to(".floating-cake", {
+            y: 40,
             duration: 3,
             repeat: -1,
-            onRepeat: nextSlide
+            yoyo: true,
+            ease: "power1.inOut"
         });
 
-        // Pause auto-play on hover
-        document.querySelector('.slider-container').addEventListener('mouseenter', () => autoPlay.pause());
-        document.querySelector('.slider-container').addEventListener('mouseleave', () => autoPlay.resume());
+        // Cake items animation
+        gsap.utils.toArray(".cake-item").forEach((item, index) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: "top center+=100",
+                    toggleActions: "play none none reverse"
+                },
+                duration: 0.8,
+                y: 50,
+                opacity: 0,
+                delay: index * 0.1,
+                ease: "power3.out"
+            });
+        });
+
+        // Flavor cards animation
+        gsap.utils.toArray(".flavor-card").forEach((card, index) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top center+=150",
+                    toggleActions: "play none none reverse"
+                },
+                duration: 0.8,
+                scale: 0.8,
+                opacity: 0,
+                delay: index * 0.2,
+                ease: "back.out(1.7)"
+            });
+        });
+
+        // Section title animation
+        gsap.from(".section-title", {
+            scrollTrigger: {
+                trigger: ".flavors-section",
+                start: "top center"
+            },
+            duration: 1,
+            opacity: 0,
+            y: 50,
+            ease: "power3.out"
+        });
     </script>
+    <!-- javascript ends here  -->
 </body>
 </html>

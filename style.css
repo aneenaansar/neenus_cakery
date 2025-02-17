@@ -6,10 +6,15 @@
     box-sizing: border-box;
     font-family: "Roboto", serif;
 }
+
+body {
+
+    overflow-x: hidden;
+}
 /* header and hero section css starts here  */
 .hero{
     position: relative;
-    background: #825dd2;
+    background: #D2D2D2;
     height: 100vh;
 }
 .hero::after{
@@ -41,25 +46,45 @@ header nav{
     height: 100%;
 }
 header .logo{
-    color: #fff;
+    color: #25283B;
     text-decoration: none;
     font-size: 40px;
     letter-spacing: 2px;
-    font-family: "Anton", serif;
+   
 }
 header .nav_links{
     display: flex;
     gap: 40px;
 }
-header .nav_links a{
+header .nav_links a {
     text-decoration: none;
-    color: #f0f0f0;
+    color: #25283B;
     font-size: 18px;
     font-family: sans-serif;
+    position: relative; /* Add this for pseudo-element positioning */
+    display: inline-block; /* Add this for better pseudo-element control */
 }
-header .nav_links a:hover{
-    color: #fff;
+header .nav_links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Adjust this value to control underline position */
+    width: 100%;
+    height: 2px;
+    background-color: #25283B;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: bottom right;
 }
+header .nav_links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.mobile-menu {
+    display: none;
+}
+
 
 .container{
     width: 80%;
@@ -106,7 +131,7 @@ header .nav_links a:hover{
 }
 .hero h1{
     font-size: 12vw;
-    color: #fff;
+    color: #25283B;
     font-weight: 900;
     letter-spacing: 10px;
     font-family: "Anton", serif;
@@ -120,7 +145,7 @@ header .nav_links a:hover{
 
 /* about section css starts here  */
 :root {
-    --primary-color: #f8a5d3;
+    --primary-color: #25283B;
     --secondary-color: #6c5b7b;
 }
 
@@ -193,7 +218,7 @@ header .nav_links a:hover{
 
 .cta-button:hover {
     transform: translateY(-3px);
-    background-color: #ff97c7;
+    background-color: #25283B;
 }
 
 
@@ -202,7 +227,7 @@ header .nav_links a:hover{
 /* stand section css starts here  */
 .stand{
     height: 85vh;
-    background: #bd9fff;
+    background: #D2D2D2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -226,7 +251,7 @@ header .nav_links a:hover{
     font-size: 26vh;
     text-transform: uppercase;
     font-family: "Anton", serif;
-    color: #6a47b4;
+    color: #25283B;
     letter-spacing: 7px;
 }
 /* stand section css starts here  */
@@ -298,7 +323,7 @@ header .nav_links a:hover{
 }
 
 .view-more-btn {
-    background-color: #ff97c7; /* Yellow background */
+    background-color: #25283B; /* Yellow background */
     color: #fff; /* Dark brown text */
     font-size: 16px;
     font-weight: bold;
@@ -311,7 +336,7 @@ header .nav_links a:hover{
   }
 
 .view-more-btn:hover {
-    background-color: #fb77b4; /* Darker yellow on hover */
+    background-color: #25283B; /* Darker yellow on hover */
     transform: translateY(-2px);
   }
 
@@ -345,72 +370,67 @@ header .nav_links a:hover{
 
 
  /* Testimonials Section Styles starts here */
- .testimonials {
-    padding: 4rem 2rem;
-    background: #fff9f9;
-    text-align: center;
-}
-
-.testimonials h2 {
-    font-size: 2.5rem;
-    color: #4a2c2a;
-    margin-bottom: 2rem;
-}
-
-.testimonial-container {
-    overflow: hidden;
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    --testimonials-per-view: 1;
-}
-
-.testimonial-slider {
+.body{
+    /* background-image: linear-gradient(to top right, #8B5CF6, #EC4899); */
+    min-height: 59vh;
+    margin: 0;
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
 }
-
-.testimonial-card {
-    flex: 0 0 calc(100% / var(--testimonials-per-view));
-    padding: 1rem;
-    box-sizing: border-box;
-    min-height: 300px;
+ .slider{
+    position: relative;
+    width: 100%;
+    height: 370px;
+    overflow: hidden;
 }
-
-.testimonial-content {
-    background: white;
-    padding: 2rem;
+.item{
+    position: absolute;
+    width: 247px;
+    height: 320px;
+    text-align: justify;
+    background-color: #D2D2D2;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    height: 100%;
+    padding: 20px;
+    transition:  0.5s;
+    left: calc(50% - 110px);
+    top: 0;
 }
-
-.testimonial-card img {
-    width: 80px;
-    height: 80px;
+.item h1{
+    color: #25283B;
+}
+.item img{
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    margin: 0 auto 1rem;
     object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 15px;
 }
-
-.testimonial-card h3 {
-    font-size: 1.25rem;
-    color: #4a2c2a;
-    margin-bottom: 0.5rem;
+#next{
+    position: absolute;
+    right: 50px;
+    top: 40%;
 }
-
-.testimonial-card p {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.5;
-    max-width: 300px;
-    margin: 0 auto;
+#prev{
+    position: absolute;
+    left: 50px;
+    top: 40%;
 }
-
-@media (min-width: 768px) {
-    .testimonial-container {
-        --testimonials-per-view: 3;
-    }
+#prev, #next{
+    color: #25283B;
+    background: none;
+    border: none;
+    font-size: xxx-large;
+    font-family: monospace;
+    font-weight: bold;
+    opacity: 0.5;
+    transition: opacity 0.5s;
+}
+#prev:hover,
+#next:hover{
+    opacity: 1;
 }
 /* Testimonials Section Styles ends here */
 
@@ -451,20 +471,20 @@ header .nav_links a:hover{
 }
 
 .footer ul li a {
-text-decoration: none;
-color: #fff;
-transition: color 0.3s;
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
 }
 
 .footer ul li a:hover {
-color: #fff; /* Darker brown */
+    color: #fff; /* Darker brown */
 }
 
 .footer-bottom {
-margin-top: 20px;
-border-top: 1px solid #fff;
-padding-top: 10px;
-font-size: 12px;
+    margin-top: 20px;
+    border-top: 1px solid #fff;
+    padding-top: 10px;
+    font-size: 12px;
 }
 
 

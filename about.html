@@ -30,7 +30,7 @@
             height: 100%;
         }
         header .logo{
-            color: #fff;
+            color: #25283B;
             text-decoration: none;
             font-size: 40px;
             letter-spacing: 2px;
@@ -40,22 +40,62 @@
             display: flex;
             gap: 40px;
         }
-        header .nav_links a{
+        header .nav_links a {
             text-decoration: none;
-            color: #f0f0f0;
+            color: #25283B;
             font-size: 18px;
             font-family: sans-serif;
+            position: relative; /* Add this for pseudo-element positioning */
+            display: inline-block; /* Add this for better pseudo-element control */
         }
-        header .nav_links a:hover{
-            color: #fff;
+        header .nav_links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px; /* Adjust this value to control underline position */
+            width: 100%;
+            height: 2px;
+            background-color: #25283B;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: bottom right;
+        }
+        header .nav_links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .mobile-menu {
+            display: none;
         }
 
         /* Hero Section */
-        .hero {
+        /* .hero {
             height: 100vh;
-            background-color: #825dd2;
             position: relative;
             overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 0;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(210, 210, 210, 0.5);
+            z-index: 1;
         }
 
         .hero-content {
@@ -69,13 +109,13 @@
 
         .hero h1 {
             font-size: 3.5rem;
-            color: #ffffff;
+            color:#25283B;
             margin-bottom: 1rem;
         }
 
         .hero p {
             font-size: 1.2rem;
-            color: #ffffff;
+            color:#25283B;
         }
 
         .floating-icon {
@@ -83,6 +123,7 @@
             width: 50px;
             height: 50px;
             animation: float 6s ease-in-out infinite;
+            z-index: 1; 
         }
 
         .icon1 { top: 20%; left: 20%; animation-delay: 0s; }
@@ -94,6 +135,15 @@
             50% { transform: translateY(-20px); }
             100% { transform: translateY(0px); }
         }
+
+        @media (max-width: 768px) {
+            .hero-video {
+                display: none;
+            }
+            .hero {
+                background-color: #825dd2; 
+            }
+        } */
 
         /* About Section */
         .about {
@@ -107,6 +157,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
+            margin-top: 50px;
         }
 
         .about-image {
@@ -123,7 +174,7 @@
             position: absolute;
             bottom: -20px;
             right: -20px;
-            background: #825dd2;
+            background: #25283B;
             padding: 1rem;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(130, 93, 210, 0.2);
@@ -132,7 +183,7 @@
 
         .about-content h2 {
             font-size: 2rem;
-            color: #825dd2;
+            color: #25283B;
             margin-bottom: 1.5rem;
         }
 
@@ -151,7 +202,7 @@
         .timeline h2 {
             text-align: center;
             font-size: 2rem;
-            color: #825dd2;
+            color: #25283B;
             margin-bottom: 3rem;
         }
 
@@ -165,7 +216,7 @@
             content: '';
             position: absolute;
             width: 2px;
-            background-color: #825dd2;
+            background-color: #25283B;
             top: 0;
             bottom: 0;
             left: 50%;
@@ -198,7 +249,7 @@
         }
 
         .timeline-content h3 {
-            color: #825dd2;
+            color: #25283B;
             margin-bottom: 0.5rem;
         }
 
@@ -206,7 +257,7 @@
             position: absolute;
             width: 40px;
             height: 40px;
-            background: #825dd2;
+            background: #25283B;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -319,7 +370,13 @@
 
 
     <!-- Hero Section -->
-    <section class="hero">
+    <!-- <section class="hero">
+        <video autoplay muted loop class="hero-video">
+            <source src="./images/7186835_Chocolate_Melting_3840x2160.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+        
         <div class="hero-content">
             <h1>Welcome to Neenus Cakery</h1>
             <p>Where every slice tells a story and every bite brings joy</p>
@@ -333,7 +390,7 @@
         <svg class="floating-icon icon3" viewBox="0 0 24 24" fill="#ffffff">
             <path d="M6 2l1.5 1.5L9 2l1.5 1.5L12 2l1.5 1.5L15 2l1.5 1.5L18 2l1.5 1.5L21 2v20l-1.5-1.5L18 22l-1.5-1.5L15 22l-1.5-1.5L12 22l-1.5-1.5L9 22l-1.5-1.5L6 22l-1.5-1.5L3 22V2l1.5 1.5L6 2zm14 2H4v16h16V4zm-2 4H6v2h12V8zm0 4H6v2h12v-2zm0 4H6v2h12v-2z"/>
         </svg>
-    </section>
+    </section> -->
 
     <!-- About Section -->
     <section class="about">

@@ -76,54 +76,41 @@ document.querySelectorAll('.cake-card').forEach(card => {
 
 // testimonials section js starts here 
 
-document.addEventListener('DOMContentLoaded', function() {
-    const container = document.querySelector('.testimonial-container');
-    const slider = document.querySelector('.testimonial-slider');
-    const testimonials = document.querySelectorAll('.testimonial-card');
-    let currentIndex = 0;
-    let autoSlideInterval;
-
-    function updateSlider() {
-        const testimonialsPerView = parseInt(getComputedStyle(container).getPropertyValue('--testimonials-per-view'));
-        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+let items = document.querySelectorAll('.slider .item');
+let active = 3;
+function loadShow(){
+    items[active].style.transform = `none`;
+    items[active].style.zIndex = 1;
+    items[active].style.filter = 'none';
+    items[active].style.opacity = 1;
+    // show after
+    let stt = 0;
+    for(var i = active + 1; i < items.length; i ++){
+        stt++;
+        items[i].style.transform = `translateX(${120*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(-1deg)`;
+        items[i].style.zIndex = -stt;
+        items[i].style.filter = 'blur(5px)';
+        items[i].style.opacity = stt > 2 ? 0 : 0.6;
     }
-
-    function nextSlide() {
-        const testimonialsPerView = parseInt(getComputedStyle(container).getPropertyValue('--testimonials-per-view'));
-        const totalSlides = Math.ceil(testimonials.length / testimonialsPerView);
-        
-        currentIndex++;
-        if (currentIndex >= totalSlides) {
-            // Smoothly reset to first slide
-            slider.style.transition = 'none';
-            currentIndex = 0;
-            slider.style.transform = `translateX(0)`;
-            void slider.offsetWidth; // Trigger reflow
-            slider.style.transition = 'transform 0.5s ease-in-out';
-        }
-        updateSlider();
+     stt = 0;
+    for(var i = (active - 1); i >= 0; i --){
+        stt++;
+        items[i].style.transform = `translateX(${-120*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(1deg)`;
+        items[i].style.zIndex = -stt;
+        items[i].style.filter = 'blur(5px)';
+        items[i].style.opacity = stt > 2 ? 0 : 0.6;
     }
-
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, 5000);
-    }
-
-    function handleResize() {
-        currentIndex = 0;
-        slider.style.transition = 'none';
-        slider.style.transform = `translateX(0)`;
-        void slider.offsetWidth;
-        slider.style.transition = 'transform 0.5s ease-in-out';
-        clearInterval(autoSlideInterval);
-        startAutoSlide();
-    }
-
-    // Initialize slider
-    updateSlider();
-    startAutoSlide();
-
-    // Handle window resize
-    window.addEventListener('resize', handleResize);
-});
+}
+loadShow();
+let next = document.getElementById('next');
+let prev = document.getElementById('prev');
+next.onclick = function(){
+   active = active + 1 < items.length ?  active + 1 : active;
+   loadShow();
+}
+prev.onclick = function(){
+    active = active - 1 >= 0 ? active -1 : active;
+    loadShow();
+}
 
 // testimonials section js ends here 
